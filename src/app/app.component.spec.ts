@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'learnREST'`, () => {
+  it(`should have as title 'mangadex-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('learnREST');
+    expect(app.title).toEqual('mangadex-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('learnREST app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('mangadex-angular app is running!');
   });
 });
