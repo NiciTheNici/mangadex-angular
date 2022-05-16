@@ -1,0 +1,6 @@
+<p>manga works!</p>
+<input type="text" [(ngModel)]="query">
+<button (click)="searchManga(query)">Search</button>
+<li *ngFor="let manga of manga"></li>
+
+<button (click)="getJsonPlaceholder()">get json</button>
