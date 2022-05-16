@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 
 export class MangaComponent implements OnInit {
   query: any = "";
-  manga: Manga[] = [];
+  returnedManga: Mangas = <Mangas>{};
 
 
   constructor(private http: HttpClient) {
@@ -29,12 +29,9 @@ export class MangaComponent implements OnInit {
   searchManga(query: string): any {
     this.http.get<any>('https://api.mangadex.org/manga?limit=10&title=' + query).subscribe(results => {
       console.log(results);
-      let mangas: Mangas = results;
-      // for (let i = 0; i < mangas.data.length; i++) {
-      //   this.manga[0].data = mangas.data[0];
-      // }
-      for (let i = 0; i < mangas.data.length; i++) {
-      console.log(mangas.data[i].attributes.title.en);
+      this.returnedManga = results;
+      for (let i = 0; i < this.returnedManga.data.length; i++) {
+        console.log(this.returnedManga.data[i].attributes.title.en);
       }
 
     });
@@ -65,16 +62,4 @@ interface Mangas {
       }
     }
   }]
-}
-
-interface Manga {
-  data: {
-    id: string,
-    type: string,
-    attributes: {
-      title: {
-        en: string;
-      }
-    }
-  }
 }
