@@ -1,8 +1,10 @@
 <p>manga works!</p>
-<input type="text" [(ngModel)]="query">
-<button (click)="searchManga(query)">Search</button>
-<li *ngFor="let manga of returnedManga.data">
-  {{manga.attributes.title.en}}
-</li>
+<form>
+  <input type="text" [(ngModel)]="query" name="title">
+  <button (click)="searchManga(query)" type="submit">Search</button>
+  <li *ngFor="let manga of returnedManga.data">
+    {{manga.attributes.title.en}}
+  </li>
 
-<button (click)="getJsonPlaceholder()">get json</button>
+</form>
+  <button (click)="getJsonPlaceholder()">get json</button>
